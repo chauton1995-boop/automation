@@ -1,5 +1,5 @@
 git init
-git remote add origin https://github.com/tuanxhbk/python_automation.git
+git remote add origin 
 git remote show origin
 git status
 git add automation_framework/
@@ -14,3 +14,22 @@ git add [file_name] (add file_name to be committed)
 git status (check status)
 git log (check log)
 git push --set-upstream origin chapter3_automation
+
+active virutal env:
+python -m venv venv
+venv\Scripts\activate
+pip install selenium
+pip install pytest
+Ctrl + Shift + P -> Python: Select Interpreter
+Ctrl + Shift + P -> Python: Configure Tests
+Edit .vscode/settings.json to configure where to find test
+#{
+    "python.testing.pytestArgs": [
+        "automation_framework/tests"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
+}
+
+run test:
+pytest -s -v [file_name]::[function_name] #pytest -s -v .\automation_framework\tests\test_login.py
