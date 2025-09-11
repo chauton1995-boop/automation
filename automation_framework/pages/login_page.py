@@ -1,3 +1,4 @@
+from time import sleep
 from selenium.webdriver.common.by import By
 
 class LoginPage:
@@ -12,7 +13,7 @@ class LoginPage:
         username = self.driver.find_element(*self.USERNAME)
         password = self.driver.find_element(*self.PASSWORD)
         login_button = self.driver.find_element(*self.LOGIN_BUTTON)
-
         username.send_keys("Admin")
         password.send_keys("admin123")
         login_button.click()
+        sleep(5)
