@@ -33,3 +33,4 @@ Edit .vscode/settings.json to configure where to find test
 
 run test:
 pytest -s -v [file_name]::[function_name] #pytest -s -v .\automation_framework\tests\test_login.py
+#pytest automation_framework/tests/test_login.py -s -v - macOS
