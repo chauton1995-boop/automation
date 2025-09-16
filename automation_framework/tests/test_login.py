@@ -14,3 +14,4 @@ class TestOrange(BaseTest):
         dashboardpage = DashboardPage(self.driver)
         assert dashboardpage.is_dashboard_displayed() is True
         sleep(5)
+

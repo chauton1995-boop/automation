@@ -17,3 +17,7 @@ class LoginPage:
         password.send_keys("admin123")
         login_button.click()
         sleep(5)
+
+
+
+
