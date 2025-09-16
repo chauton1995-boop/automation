@@ -10,7 +10,8 @@ class TestOrange(BaseTest):
     
     def test_login(self):
         loginpage = LoginPage(self.driver)
-        loginpage.test_login()
+        loginpage.login('Admin', 'admin123')
+        
         dashboardpage = DashboardPage(self.driver)
         assert dashboardpage.is_dashboard_displayed() is True
         sleep(5)
