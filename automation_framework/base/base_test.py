@@ -10,6 +10,6 @@ class BaseTest:
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
         sleep(5)  # đợi trang load
         request.cls.driver = driver
-        yield
+        yield driver
         driver.quit()
     
