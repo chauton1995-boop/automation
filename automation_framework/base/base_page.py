@@ -16,3 +16,6 @@ class BasePage:
 
     def set_text(self, xpath, text):
         self.wait.until(EC.visibility_of_element_located(xpath)).send_keys(text)
+    
+    
+        

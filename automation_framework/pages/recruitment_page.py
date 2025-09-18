@@ -3,9 +3,10 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
-from automation_framework.base.base_test import BaseTest
+from base.base_page import BasePage
+from time import sleep
 
-class RecruitmentPage(BaseTest):
+class RecruitmentPage(BasePage):
     RECRUITMENT = (By.LINK_TEXT, "Recruitment")
     VACANCIES = (By.XPATH, "//a[text()='Vacancies']")
     ADDBUTTON = (By.XPATH, "//button[@class='oxd-button oxd-button--medium oxd-button--secondary']")
@@ -16,10 +17,13 @@ class RecruitmentPage(BaseTest):
     SAVEBUTTON = (By.XPATH, "//button[@class='oxd-button oxd-button--medium oxd-button--secondary orangehrm-left-space']")
 
     def __init__(self, driver):
-        self.driver = driver
+        super().__init__(driver)
         
     def vacancies(self, vacancy_name, job_title, hiring_manager):
+        
         wait = WebDriverWait(self.driver, 10)
+        
+        
         wait.until(EC.element_to_be_clickable(self.RECRUITMENT)).click()
         wait.until(EC.visibility_of_element_located(self.VACANCIES)).click()
         wait.until(EC.element_to_be_clickable(self.ADDBUTTON)).click()
@@ -32,9 +36,11 @@ class RecruitmentPage(BaseTest):
         wait.until(EC.element_to_be_clickable(self.JOBTITLE)).click()
 
         # Đợi dropdown hiển thị option mong muốn
-        option_xpath = (By.XPATH, f"//div[@role='option' and .='{job_title}']")
+        option_xpath = (By.XPATH, f"//div[@role='option']//span[text()='{job_title}']")
         wait.until(EC.visibility_of_element_located(option_xpath)).click()
-
+        sleep(2)
+        
+        
         # Điền Hiring Manager
         wait.until(EC.presence_of_element_located(self.HIRINGMANAGER)).send_keys(hiring_manager)
 

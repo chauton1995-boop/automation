@@ -12,7 +12,7 @@ class TestVacancies(BaseTest):
 
         recruitment_page = RecruitmentPage(self.driver)
         recruitment_page.vacancies(
-        vacancy_name="QA Engineer",
-        job_title="Account Assistant",
-        hiring_manager="John Smith"
-        )
+            vacancy_name="QA Engineer",
+            job_title="Account Assistant",
+            hiring_manager="John Smith"
+            )
