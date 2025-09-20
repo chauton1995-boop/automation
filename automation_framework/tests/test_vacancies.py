@@ -3,9 +3,10 @@ from automation_framework.pages.login_page import LoginPage
 from automation_framework.pages.recruitment_page import RecruitmentPage
 from automation_framework.base.base_test import BaseTest
 
-@pytest.mark.usefixtures("setup")
+@pytest.fixture(scope= 'class', autouse=True)
 class TestVacancies(BaseTest):
-
+    
+    @pytest.mark.smoke
     def test_add_vacancy(self):
         login_page = LoginPage(self.driver)
         login_page.login("Admin", "admin123")

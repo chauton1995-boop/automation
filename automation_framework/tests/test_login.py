@@ -8,6 +8,7 @@ from pages.dashboard_page import DashboardPage
 
 class TestOrange(BaseTest):
     
+    @pytest.mark.smoke
     def test_login(self):
         loginpage = LoginPage(self.driver)
         loginpage.login('Admin', 'admin123')
