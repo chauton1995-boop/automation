@@ -5,13 +5,15 @@ from time import sleep
 from base.base_test import BaseTest
 from pages.login_page import LoginPage   # ✅ import LoginPage
 from pages.dashboard_page import DashboardPage
+from utils.config_reader import ConfigReader
 
 class TestOrange(BaseTest):
     
     @pytest.mark.smoke
     def test_login(self):
         loginpage = LoginPage(self.driver)
-        loginpage.login('Admin', 'admin123')
+        # loginpage.login('Admin', 'admin123')
+        loginpage.login(ConfigReader.get_credential('username'), ConfigReader.get_credential('password'))
         dashboardpage = DashboardPage(self.driver)
         assert dashboardpage.is_dashboard_displayed() is True
         sleep(5)
