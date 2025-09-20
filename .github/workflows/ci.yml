@@ -2,9 +2,9 @@ name: Run Selenium Pytest
 
 on:
   push:
-    branches: [ chapter3_automation ]
+    branches: [chapter3_automation]
   pull_request:
-    branches: [ chapter3_automation ]
+    branches: [chapter3_automation]
 
 jobs:
   test:
